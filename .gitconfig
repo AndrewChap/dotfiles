@@ -1,0 +1,20 @@
+#[user]
+#        email = achap@ast-science.com
+#        user = Andrew Chap
+[user]
+	email = andrew@andrewchap.com
+	name = Andrew Chap
+[core]
+	editor = code --wait
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
