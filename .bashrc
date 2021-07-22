@@ -112,8 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Save history from multiple terminals opened
+# https://askubuntu.com/questions/80371/bash-history-handling-with-multiple-terminals
+# use posh git
 source ~/.git-prompt.sh
-PROMPT_COMMAND='__posh_git_ps1 "\w " "\\\$ ";'$PROMPT_COMMAND
+PROMPT_COMMAND='history -a && __posh_git_ps1 "\w " "\\\$ ";'$PROMPT_COMMAND
 
 # history search
 if [[ $- == *i* ]]
@@ -149,3 +152,19 @@ alias c=code
 # use vscode as git diff tool
 # git config --global diff.tool vscode
 # git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+
+# Save history from multiple terminals opened
+# https://askubuntu.com/questions/80371/bash-history-handling-with-multiple-terminals
+# export PROMPT_COMMAND='history -a'
+
+
+# get rid of those annoying blue on green folder looks
+LS_COLORS='ow=01;36;01'
+export LS_COLORS
+
+# Create 'save' command to save current directory as the new default starting directory
+# https://unix.stackexchange.com/a/461520/271020
+alias curDir="pwd | sed -e 's/ /\\ /'"
+alias save='echo `curDir` > ~/.saved_dir'
+alias saved='cd `cat ~/.saved_dir`'
+saved
