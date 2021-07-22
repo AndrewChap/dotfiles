@@ -6,6 +6,7 @@
 	name = Andrew Chap
 [core]
 	editor = code --wait
+	autocrlf = false
 [diff]
 	tool = vscode
 [difftool "vscode"]
